@@ -12,21 +12,13 @@ body {
   overflow: hidden;
 }
 
-/* 魔法陣背景 */
 .magic-circle {
   position: absolute;
   inset: 0;
-  background: url('/magic-circle.png') center/contain no-repeat;
+  background: url('/magic-circle.png') center/cover no-repeat;
   opacity: 0.8;
-  animation: rotate 40s linear infinite;
 }
 
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* タイトル */
 .title {
   position: absolute;
   top: 5%;
@@ -34,11 +26,9 @@ body {
   text-align: center;
   font-size: clamp(2rem, 5vw, 4rem);
   color: gold;
-  text-shadow: 0 0 10px gold, 0 0 20px #ffdd55;
   font-family: 'Cinzel Decorative', serif;
 }
 
-/* 属性選択の円配置 */
 .elements {
   position: absolute;
   top: 50%;
@@ -52,8 +42,7 @@ body {
   position: relative;
 }
 
-/* 各属性の円 */
-.element {
+.symbol {
   position: absolute;
   width: 90px;
   height: 90px;
@@ -64,32 +53,223 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  text-align: center;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.symbol:nth-child(1) { top: 0%; left: 50%; transform: translate(-50%, -50%); }
+.symbol:nth-child(2) { top: 20%; left: 90%; transform: translate(-50%, -50%); }
+.symbol:nth-child(3) { top: 50%; left: 100%; transform: translate(-50%, -50%); }
+.symbol:nth-child(4) { top: 80%; left: 90%; transform: translate(-50%, -50%); }
+.symbol:nth-child(5) { top: 100%; left: 50%; transform: translate(-50%, -50%); }
+.symbol:nth-child(6) { top: 80%; left: 10%; transform: translate(-50%, -50%); }
+.symbol:nth-child(7) { top: 20%; left: 10%; transform: translate(-50%, -50%); }
+.magic-circle {
+  position: absolute;
+  inset: 0;
+  background: url('/magic-circle.png') center/cover no-repeat;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 25px #00aaff) brightness(1.2);
+  animation: rotate 40s linear infinite;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
+  animation: pulse 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.3; }
+}
+.symbol {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  border: 3px solid gold;
+  color: gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 0 10px gold;
+}
+
+.symbol:hover {
+  box-shadow: 0 0 20px gold, 0 0 40px #ffdd55;
+  transform: scale(1.15);
+}
+.title {
+  animation: glow 4s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 10px gold; }
+  50% { text-shadow: 0 0 25px gold, 0 0 40px #ffdd55; }
+  100% { text-shadow: 0 0 10px gold; }
+}
+input {
+  width: 80%;
+  padding: 10px;
+  border: 2px solid gold;
+  background: rgba(0,0,0,0.6);
+  color: gold;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px gold;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: gold;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: 0.3s;
 }
 
-/* ホバー時の光る演出 */
-.element:hover {
-  box-shadow: 0 0 15px gold, 0 0 30px #ffdd55;
+button:hover {
+  box-shadow: 0 0 20px gold;
+  transform: scale(1.1);
+}
+body {
+  animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; filter: blur(10px); }
+  to { opacity: 1; filter: blur(0); }
+}
+.symbol img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid gold;
+  box-shadow: 0 0 15px gold;
+  transition: 0.3s;
+}
+
+.symbol img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 25px gold, 0 0 40px #ffdd55;
+}
+.element-text {
+  color: gold;
+  text-align: center;
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px gold, 0 0 20px #ffdd55;
+  margin-bottom: 20px;
+}
+
+.magic-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+input {
+  width: 80%;
+  padding: 12px;
+  border: 2px solid gold;
+  background: rgba(0,0,0,0.6);
+  color: gold;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px gold;
+  text-align: center;
+  transition: 0.3s;
+}
+
+input:focus {
+  box-shadow: 0 0 25px #ffdd55, 0 0 40px gold;
+  outline: none;
+}
+
+button {
+  padding: 12px 25px;
+  background: linear-gradient(90deg, gold, #ffdd55);
+  color: black;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px gold;
+}
+
+button:hover {
+  box-shadow: 0 0 25px gold, 0 0 40px #ffdd55;
   transform: scale(1.1);
 }
 
-/* 円周に配置（7属性） */
-.element:nth-child(1) { top: 0%; left: 50%; transform: translate(-50%, -50%); }
-.element:nth-child(2) { top: 20%; left: 90%; transform: translate(-50%, -50%); }
-.element:nth-child(3) { top: 50%; left: 100%; transform: translate(-50%, -50%); }
-.element:nth-child(4) { top: 80%; left: 90%; transform: translate(-50%, -50%); }
-.element:nth-child(5) { top: 100%; left: 50%; transform: translate(-50%, -50%); }
-.element:nth-child(6) { top: 80%; left: 10%; transform: translate(-50%, -50%); }
-.element:nth-child(7) { top: 20%; left: 10%; transform: translate(-50%, -50%); }
+.magic-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,0.6) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+}
 
-/* スマホ対応 */
-@media (max-width: 600px) {
-  .element {
-    width: 60px;
-    height: 60px;
-    font-size: 0.7rem;
-  }
+.magic-effect.active {
+  transform: translate(-50%, -50%) scale(1.5);
+  opacity: 1;
+  box-shadow: 0 0 50px gold, 0 0 100px #ffdd55;
+}
+.magic-circle {
+  position: absolute;
+  inset: 0;
+  background: url('/magic-circle.png') center/cover no-repeat;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 25px #00aaff) brightness(1.2);
+  animation: rotate 40s linear infinite;
+  transition: 0.5s;
+}
+
+.magic-circle.active {
+  filter: drop-shadow(0 0 80px gold) brightness(1.8);
+  opacity: 1;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 波紋エフェクト */
+.magic-wave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,0.6) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.magic-wave.active {
+  transform: translate(-50%, -50%) scale(3);
+  opacity: 1;
+  box-shadow: 0 0 50px gold, 0 0 100px #ffdd55;
 }
