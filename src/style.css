@@ -273,3 +273,43 @@ button:hover {
   opacity: 1;
   box-shadow: 0 0 50px gold, 0 0 100px #ffdd55;
 }
+/* 画面全体に魔法陣を敷く */
+.magic-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('/magic-circle.png') center/contain no-repeat;
+  z-index: -1;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* 魔法陣をゆっくり回転させる */
+.magic-bg.rotate {
+  animation: rotate 40s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.magic-effect {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,0.6) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.magic-effect.active {
+  transform: translate(-50%, -50%) scale(2.5);
+  opacity: 1;
+  box-shadow: 0 0 50px gold, 0 0 100px #ffdd55;
+}

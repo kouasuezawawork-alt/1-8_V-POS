@@ -1,45 +1,21 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fire Register</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="main.js" defer></script>
-</head>
 <body>
 
+  <!-- 背景魔法陣 -->
+  <div class="magic-bg rotate"></div>
+
   <div class="container">
-    <div class="magic-circle"></div>
     <h1 class="title">🔥 Fire Register</h1>
 
     <div class="content">
-      <p id="selectedElement" style="color: gold; text-align:center; font-size:1.5rem;"></p>
+      <p id="selectedElement" class="element-text"></p>
 
-      <input id="inputValue" type="text" placeholder="入力してください" />
-      <button id="sendBtn">送信</button>
+      <div class="magic-input">
+        <input id="inputValue" type="text" placeholder="魔力を入力してください…" />
+        <button id="sendBtn">魔力転送</button>
+      </div>
+
+      <div id="effect" class="magic-effect"></div>
     </div>
   </div>
 
-  <script>
-    // 母機から属性を受け取る
-    const selected = localStorage.getItem('selectedElement');
-    document.getElementById('selectedElement').textContent = selected + " 属性を選択中";
-
-    // 母機へデータ送信
-    document.getElementById('sendBtn').addEventListener('click', () => {
-      const value = document.getElementById('inputValue').value;
-
-      sendToMother({
-        element: selected,
-        value: value,
-        time: new Date().toLocaleString()
-      });
-
-      alert("母機へ送信しました");
-    });
-  </script>
-<div class="magic-circle" id="circle"></div>
-
 </body>
-</html>
