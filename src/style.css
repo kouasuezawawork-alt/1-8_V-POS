@@ -1,58 +1,95 @@
 body {
-  background: #0d0d0d;
-  color: #f5e9c8;
-  font-family: "Times New Roman", serif;
-  text-align: center;
-  padding: 20px;
+  margin: 0;
+  background: #000;
+  font-family: 'Uncial Antiqua', serif;
+  overflow-x: hidden;
 }
 
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* 魔法陣背景 */
+.magic-circle {
+  position: absolute;
+  inset: 0;
+  background: url('/magic-circle.png') center/contain no-repeat;
+  opacity: 0.7;
+  animation: rotate 40s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* タイトル */
 .title {
-  font-size: 32px;
-  color: #e6c14d;
-  margin-bottom: 10px;
+  position: absolute;
+  top: 5%;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: gold;
+  text-shadow: 0 0 10px gold, 0 0 20px #ffdd55;
+  font-family: 'Cinzel Decorative', serif;
 }
 
-.subtitle {
-  font-size: 18px;
-  color: #c9b27a;
+/* 属性選択の円配置 */
+.elements {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80vw;
+  height: 80vw;
+  max-width: 600px;
+  max-height: 600px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  position: relative;
 }
 
-.register-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.register-btn {
-  background: #1a1a1a;
-  border: 2px solid #e6c14d;
-  color: #e6c14d;
-  padding: 15px;
-  font-size: 20px;
-  border-radius: 10px;
+/* 各属性の円 */
+.element {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.7);
+  border: 3px solid gold;
+  color: gold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  text-align: center;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.register-btn:hover {
-  background: #2a2a2a;
+/* ホバー時の光る演出 */
+.element:hover {
+  box-shadow: 0 0 15px gold, 0 0 30px #ffdd55;
+  transform: scale(1.1);
 }
 
-.pos-title {
-  font-size: 28px;
-  margin-bottom: 20px;
-}
+/* 円周に配置（7属性） */
+.element:nth-child(1) { top: 0%; left: 50%; transform: translate(-50%, -50%); }
+.element:nth-child(2) { top: 20%; left: 90%; transform: translate(-50%, -50%); }
+.element:nth-child(3) { top: 50%; left: 100%; transform: translate(-50%, -50%); }
+.element:nth-child(4) { top: 80%; left: 90%; transform: translate(-50%, -50%); }
+.element:nth-child(5) { top: 100%; left: 50%; transform: translate(-50%, -50%); }
+.element:nth-child(6) { top: 80%; left: 10%; transform: translate(-50%, -50%); }
+.element:nth-child(7) { top: 20%; left: 10%; transform: translate(-50%, -50%); }
 
-.scan-btn, .pay-btn {
-  background: #1a1a1a;
-  border: 2px solid #e6c14d;
-  color: #e6c14d;
-  padding: 12px 20px;
-  font-size: 18px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.scan-btn:hover, .pay-btn:hover {
-  background: #2a2a2a;
+/* スマホ対応 */
+@media (max-width: 600px) {
+  .element {
+    width: 60px;
+    height: 60px;
+    font-size: 0.7rem;
+  }
 }

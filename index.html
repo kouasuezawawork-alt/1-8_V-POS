@@ -1,13 +1,36 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1-8 VPOS - Magic Terminal</title>
-    <link rel="stylesheet" href="/src/style.css" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1-8 V-POS SYSTEM</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- 魔法フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Uncial+Antiqua&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- 魔法陣背景 -->
+    <div class="magic-circle"></div>
+
+    <!-- タイトル -->
+    <h1 class="title">1-8 V-POS SYSTEM</h1>
+
+    <!-- 属性選択（7つの円） -->
+    <div class="elements">
+      <div class="element" data-type="Fire">🔥 Fire</div>
+      <div class="element" data-type="Water">💧 Water</div>
+      <div class="element" data-type="Wind">🌪 Wind</div>
+      <div class="element" data-type="Earth">⛰ Earth</div>
+      <div class="element" data-type="Light">✨ Light</div>
+      <div class="element" data-type="Shadow">🌑 Shadow</div>
+      <div class="element" data-type="Arcane">🔮 Arcane</div>
+    </div>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
 </html>
