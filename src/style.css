@@ -1,315 +1,80 @@
+/* 魔法フォント */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Uncial+Antiqua&display=swap');
+
+/* 全体背景（黒＋青魔力） */
 body {
   margin: 0;
-  background: #000;
+  background: radial-gradient(circle, #000015, #000000);
+  color: gold;
   font-family: 'Uncial Antiqua', serif;
-  overflow-x: hidden;
-}
-
-.container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
   overflow: hidden;
 }
 
-.magic-circle {
-  position: absolute;
-  inset: 0;
-  background: url('/magic-circle.png') center/cover no-repeat;
-  opacity: 0.8;
-}
-
-.title {
-  position: absolute;
-  top: 5%;
-  width: 100%;
-  text-align: center;
-  font-size: clamp(2rem, 5vw, 4rem);
-  color: gold;
-  font-family: 'Cinzel Decorative', serif;
-}
-
-.elements {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 80vw;
-  height: 80vw;
-  max-width: 600px;
-  max-height: 600px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  position: relative;
-}
-
-.symbol {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.7);
-  border: 3px solid gold;
-  color: gold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  text-decoration: none;
-}
-
-.symbol:nth-child(1) { top: 0%; left: 50%; transform: translate(-50%, -50%); }
-.symbol:nth-child(2) { top: 20%; left: 90%; transform: translate(-50%, -50%); }
-.symbol:nth-child(3) { top: 50%; left: 100%; transform: translate(-50%, -50%); }
-.symbol:nth-child(4) { top: 80%; left: 90%; transform: translate(-50%, -50%); }
-.symbol:nth-child(5) { top: 100%; left: 50%; transform: translate(-50%, -50%); }
-.symbol:nth-child(6) { top: 80%; left: 10%; transform: translate(-50%, -50%); }
-.symbol:nth-child(7) { top: 20%; left: 10%; transform: translate(-50%, -50%); }
-.magic-circle {
-  position: absolute;
-  inset: 0;
-  background: url('/magic-circle.png') center/cover no-repeat;
-  opacity: 0.9;
-  filter: drop-shadow(0 0 25px #00aaff) brightness(1.2);
-  animation: rotate 40s linear infinite;
-}
-body::before {
-  content: "";
+/* 魔法陣背景（母機・子機の会計開始ページ専用） */
+.magic-circle-bg {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle, rgba(255,215,0,0.15) 0%, transparent 70%);
-  animation: pulse 6s ease-in-out infinite;
-  pointer-events: none;
+  background: url('/magic-circle.png') center/contain no-repeat;
+  opacity: 0.9;
+  animation: rotate 40s linear infinite;
+  z-index: -1;
 }
 
-@keyframes pulse {
-  0% { opacity: 0.3; }
-  50% { opacity: 0.7; }
-  100% { opacity: 0.3; }
-}
-.symbol {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.6);
-  border: 3px solid gold;
-  color: gold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  text-decoration: none;
-  transition: 0.3s;
-  box-shadow: 0 0 10px gold;
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
-.symbol:hover {
-  box-shadow: 0 0 20px gold, 0 0 40px #ffdd55;
-  transform: scale(1.15);
-}
-.title {
-  animation: glow 4s ease-in-out infinite;
-}
-
-@keyframes glow {
-  0% { text-shadow: 0 0 10px gold; }
-  50% { text-shadow: 0 0 25px gold, 0 0 40px #ffdd55; }
-  100% { text-shadow: 0 0 10px gold; }
-}
-input {
-  width: 80%;
-  padding: 10px;
-  border: 2px solid gold;
-  background: rgba(0,0,0,0.6);
-  color: gold;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  box-shadow: 0 0 10px gold;
-}
-
-button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: gold;
-  color: black;
-  border: none;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
+/* 羊皮紙 */
+.scroll {
+  background: url('/scroll.png') center/cover no-repeat;
+  border: 4px solid gold;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 15px;
   box-shadow: 0 0 20px gold;
-  transform: scale(1.1);
-}
-body {
-  animation: fadeIn 1.2s ease;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; filter: blur(10px); }
-  to { opacity: 1; filter: blur(0); }
-}
-.symbol img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 3px solid gold;
-  box-shadow: 0 0 15px gold;
-  transition: 0.3s;
-}
-
-.symbol img:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 25px gold, 0 0 40px #ffdd55;
-}
-.element-text {
+/* 金文字 */
+.gold-text {
   color: gold;
-  text-align: center;
-  font-size: 1.5rem;
   text-shadow: 0 0 10px gold, 0 0 20px #ffdd55;
-  margin-bottom: 20px;
 }
 
-.magic-input {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-}
-
-input {
-  width: 80%;
-  padding: 12px;
-  border: 2px solid gold;
-  background: rgba(0,0,0,0.6);
-  color: gold;
-  border-radius: 10px;
-  font-size: 1.2rem;
-  box-shadow: 0 0 10px gold;
-  text-align: center;
-  transition: 0.3s;
-}
-
-input:focus {
-  box-shadow: 0 0 25px #ffdd55, 0 0 40px gold;
-  outline: none;
-}
-
-button {
-  padding: 12px 25px;
+/* 魔法ボタン */
+.magic-btn {
   background: linear-gradient(90deg, gold, #ffdd55);
   color: black;
   border: none;
+  padding: 15px 30px;
+  font-size: 1.5rem;
   border-radius: 10px;
-  font-size: 1.2rem;
   cursor: pointer;
+  box-shadow: 0 0 20px gold;
   transition: 0.3s;
-  box-shadow: 0 0 15px gold;
 }
 
-button:hover {
-  box-shadow: 0 0 25px gold, 0 0 40px #ffdd55;
+.magic-btn:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 40px gold;
 }
 
-.magic-effect {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,215,0,0.6) 0%, transparent 70%);
-  transform: translate(-50%, -50%) scale(0);
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-.magic-effect.active {
-  transform: translate(-50%, -50%) scale(1.5);
-  opacity: 1;
-  box-shadow: 0 0 50px gold, 0 0 100px #ffdd55;
-}
-.magic-circle {
-  position: absolute;
-  inset: 0;
-  background: url('/magic-circle.png') center/cover no-repeat;
-  opacity: 0.9;
-  filter: drop-shadow(0 0 25px #00aaff) brightness(1.2);
-  animation: rotate 40s linear infinite;
-  transition: 0.5s;
-}
-
-.magic-circle.active {
-  filter: drop-shadow(0 0 80px gold) brightness(1.8);
-  opacity: 1;
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* 波紋エフェクト */
-.magic-wave {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,215,0,0.6) 0%, transparent 70%);
-  transform: translate(-50%, -50%) scale(0);
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-.magic-wave.active {
-  transform: translate(-50%, -50%) scale(3);
-  opacity: 1;
-  box-shadow: 0 0 50px gold, 0 0 100px #ffdd55;
-}
-/* 画面全体に魔法陣を敷く */
-.magic-bg {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url('/magic-circle.png') center/contain no-repeat;
-  z-index: -1;
-  opacity: 0.9;
-  pointer-events: none;
-}
-
-/* 魔法陣をゆっくり回転させる */
-.magic-bg.rotate {
-  animation: rotate 40s linear infinite;
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.magic-effect {
+/* 魔法陣反応エフェクト（送信時） */
+.send-effect {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,215,0,0.6) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255,215,0,0.7), transparent);
   transform: translate(-50%, -50%) scale(0);
   opacity: 0;
-  pointer-events: none;
   transition: 0.5s;
+  pointer-events: none;
 }
 
-.magic-effect.active {
+.send-effect.active {
   transform: translate(-50%, -50%) scale(2.5);
   opacity: 1;
-  box-shadow: 0 0 50px gold, 0 0 100px #ffdd55;
 }
