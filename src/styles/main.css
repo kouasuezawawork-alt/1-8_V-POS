@@ -1,0 +1,261 @@
+/* ==========================================
+   1-8 V-POS Ver1
+   Global Style
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    background:#020611;
+
+    font-size:16px;
+
+}
+
+body{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at center,#102748 0%,#071120 45%,#020611 100%);
+
+    color:white;
+
+    font-family:
+        "Yu Gothic UI",
+        "Hiragino Sans",
+        sans-serif;
+
+}
+
+#root{
+
+    width:100%;
+    height:100%;
+
+}
+
+/* ==============================
+   全ページ共通
+============================== */
+
+.register-page{
+
+    position:relative;
+
+    width:100%;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    padding-top:40px;
+
+}
+
+/* ==============================
+   宇宙背景
+============================== */
+
+.space-background{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:-20;
+
+    background:
+        radial-gradient(circle at center,
+        rgba(0,180,255,.18),
+        transparent 40%),
+        radial-gradient(circle at top,
+        rgba(120,80,255,.15),
+        transparent 50%),
+        #030813;
+
+}
+
+/* ==============================
+   星
+============================== */
+
+.space-background::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+    radial-gradient(white 1px,transparent 1px),
+    radial-gradient(#8ddfff 1px,transparent 1px);
+
+    background-size:
+
+    70px 70px,
+    140px 140px;
+
+    animation:
+
+    starsMove 90s linear infinite;
+
+    opacity:.65;
+
+}
+
+@keyframes starsMove{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(120px);
+
+}
+
+}
+
+/* ==============================
+   青い霧
+============================== */
+
+.space-background::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180%;
+
+    height:180%;
+
+    left:-40%;
+
+    top:-40%;
+
+    background:
+
+    radial-gradient(circle,
+
+    rgba(0,255,255,.10),
+
+    transparent 70%);
+
+    filter:blur(80px);
+
+    animation:
+
+    mistMove 18s ease-in-out infinite;
+
+}
+
+@keyframes mistMove{
+
+0%{
+
+transform:translate(-20px,-15px);
+
+}
+
+50%{
+
+transform:translate(25px,20px);
+
+}
+
+100%{
+
+transform:translate(-20px,-15px);
+
+}
+
+}
+
+/* ==============================
+   スクロールバー非表示
+============================== */
+
+::-webkit-scrollbar{
+
+display:none;
+
+}
+
+/* ==============================
+   ボタン
+============================== */
+
+button{
+
+font:inherit;
+
+outline:none;
+
+}
+
+/* ==============================
+   iPhone対応
+============================== */
+
+@supports(padding:max(0px)){
+
+.register-page{
+
+padding-top:max(40px,env(safe-area-inset-top));
+
+padding-bottom:env(safe-area-inset-bottom);
+
+}
+
+}
+
+/* ==============================
+   Android・iPhone
+============================== */
+
+@media (max-width:600px){
+
+html{
+
+font-size:15px;
+
+}
+
+.register-page{
+
+padding-left:12px;
+
+padding-right:12px;
+
+}
+
+}

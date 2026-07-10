@@ -1,0 +1,35 @@
+.admin-page{
+    padding:24px;
+}
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+    margin-bottom:30px;
+}
+
+.dashboard-card{
+    background:#ffffff;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
+.dashboard-card h2{
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+.dashboard-card p{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.history-card{
+    background:#fafafa;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:16px;
+    margin-bottom:14px;
+}

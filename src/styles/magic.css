@@ -1,0 +1,218 @@
+/* ==========================
+   MAGIC CIRCLE
+========================== */
+
+.magic-circle-root{
+    position:relative;
+    width:min(90vw,520px);
+    aspect-ratio:1/1;
+    margin:25px auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.magic-circle-container{
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.magic-circle-image{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    user-select:none;
+    pointer-events:none;
+}
+
+/* ==========================
+   CENTER CORE
+========================== */
+
+.magic-core{
+
+    position:absolute;
+
+    width:18%;
+
+    aspect-ratio:1;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(circle,
+        rgba(255,255,255,.95),
+        rgba(110,240,255,.95),
+        rgba(0,180,255,.55));
+
+    box-shadow:
+        0 0 18px #7ffcff,
+        0 0 45px #00d9ff,
+        0 0 80px #008cff;
+
+    cursor:pointer;
+
+    z-index:50;
+
+}
+
+/* ==========================
+   REGISTER BUTTON
+========================== */
+
+.register-button{
+
+    position:absolute;
+
+    transform:translate(-50%,-50%);
+
+    width:16%;
+
+    aspect-ratio:1;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    z-index:40;
+
+    transition:.25s;
+
+}
+
+.register-button span{
+
+    opacity:0;
+
+}
+
+.register-button:hover{
+
+    box-shadow:
+
+        0 0 20px rgba(0,255,255,.5),
+
+        inset 0 0 20px rgba(255,255,255,.25);
+
+}
+
+.register-button.active{
+
+    box-shadow:
+
+        0 0 20px cyan,
+
+        0 0 45px #00ffff,
+
+        inset 0 0 35px rgba(255,255,255,.45);
+
+}
+
+/* ==========================
+   TITLE
+========================== */
+
+.title{
+
+    text-align:center;
+
+    color:#ffd86a;
+
+    font-size:2.3rem;
+
+    letter-spacing:3px;
+
+    text-shadow:
+
+        0 0 10px gold,
+
+        0 0 20px #ffd86a,
+
+        0 0 40px orange;
+
+}
+
+/* ==========================
+   SUB TITLE
+========================== */
+
+.subtitle{
+
+    margin-top:10px;
+
+    text-align:center;
+
+    color:white;
+
+    font-size:1rem;
+
+    opacity:.9;
+
+}
+
+/* ==========================
+   SCREEN FLASH
+========================== */
+
+.screen-flash{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#9ffcff;
+
+    opacity:.18;
+
+    pointer-events:none;
+
+    z-index:999;
+
+}
+
+/* ==========================
+   BOTTOM MESSAGE
+========================== */
+
+.bottom-message{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    color:#ddd;
+
+    font-size:.8rem;
+
+    opacity:.8;
+
+}
+
+/* ==========================
+   PHONE
+========================== */
+
+@media(max-width:600px){
+
+.magic-circle-root{
+
+width:95vw;
+
+margin-top:30px;
+
+}
+
+.title{
+
+font-size:1.9rem;
+
+}
+
+}

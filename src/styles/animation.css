@@ -1,0 +1,115 @@
+/* ==================================
+   Sending Animation
+================================== */
+
+.sending-circle{
+
+    animation:
+    sendingRotate 1.5s linear infinite;
+
+}
+
+@keyframes sendingRotate{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+.send-glow{
+
+    animation:
+    sendGlow 1.5s ease-in-out infinite;
+
+}
+
+@keyframes sendGlow{
+
+0%{
+
+filter:brightness(1);
+
+}
+
+50%{
+
+filter:brightness(1.8);
+
+}
+
+100%{
+
+filter:brightness(1);
+
+}
+
+}
+
+.sending-page{
+
+    width:100%;
+
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:24px;
+
+    background:#0d0d18;
+
+    color:white;
+
+}
+
+.magic-circle{
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    border:3px solid cyan;
+
+    box-shadow:
+
+        0 0 20px cyan,
+
+        0 0 60px cyan;
+
+    animation:
+
+        rotateCircle 8s linear infinite;
+
+}
+
+@keyframes rotateCircle{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
